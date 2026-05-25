@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, type Variants } from 'framer-motion'
 import { Check, BookOpen } from 'lucide-react'
 
 const chapters = [
@@ -41,14 +41,14 @@ const chapters = [
   },
 ]
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1 } },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 }
 
 export default function GuideContent() {
