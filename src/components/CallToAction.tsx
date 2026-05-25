@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Download, Star } from 'lucide-react'
-import { track } from '@vercel/analytics'
 
 export default function CallToAction() {
   const ref = useRef(null)
@@ -60,7 +59,7 @@ export default function CallToAction() {
           <motion.a
             href="/guide-crypto.pdf"
             download
-            onClick={() => track('pdf_download', { source: 'cta' })}
+            onClick={() => window.gtag?.('event', 'pdf_download', { source: 'cta' })}
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}

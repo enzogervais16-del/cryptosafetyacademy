@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Download, AlertTriangle } from 'lucide-react'
-import { track } from '@vercel/analytics'
 
 export default function Hero() {
   return (
@@ -71,7 +70,7 @@ export default function Hero() {
             href="/guide-crypto.pdf"
             download
             id="download"
-            onClick={() => track('pdf_download', { source: 'hero' })}
+            onClick={() => window.gtag?.('event', 'pdf_download', { source: 'hero' })}
             className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold text-sm transition-all duration-200 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 hover:-translate-y-0.5"
           >
             <Download className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
